@@ -17,7 +17,6 @@
 }
 :root[data-theme="dark"]{--bg:#0e2820;--surface:#163a2f;--ink:#f4efe4;--muted:#a9c2b4;--accent:#ee6a7f;--soft:#1d4739;--line:#2a5546;color-scheme:dark}
 #snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
-.xmas{margin:1.2rem 0 0;color:var(--accent);font-family:var(--serif);font-style:italic;font-size:1.15rem}
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -26,7 +25,7 @@ h1,h2{font-family:var(--serif);font-weight:300;margin:0}
 .hero{text-align:center;padding:2rem 0 3rem}
 .hero p.to{color:var(--muted);margin:0 0 .6rem;font-size:1rem}
 .hero h1{font-size:clamp(2.6rem,12vw,4.2rem);font-style:italic;line-height:1.05;letter-spacing:-.01em}
-.heart{display:inline-block;color:var(--accent);animation:beat 2.4s ease-in-out infinite;margin-top:1.2rem;font-size:1.6rem}
+.heart{display:inline-block;animation:beat 2.4s ease-in-out infinite}
 @keyframes beat{0%,60%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}}
 .counter{background:var(--surface);border:1px solid var(--line);border-radius:1.6rem;padding:1.6rem 1.2rem;text-align:center}
 .counter .lead{color:var(--muted);margin:0 0 1rem}
@@ -63,10 +62,8 @@ footer{margin-top:3rem;text-align:center;color:var(--muted);font-size:.85rem}
 .scene .ic{width:2.6rem;height:2.8rem}
 .gift .ic{width:2.8rem;height:2.8rem;display:block}
 .heart.ic{width:1.8rem;height:1.8rem;margin-top:1.2rem}
-a.btn{text-decoration:none;margin:.3rem}
 .music{position:fixed;right:1rem;bottom:calc(env(safe-area-inset-bottom,0px) + 1rem);z-index:3;background:var(--accent);color:#fff;border:0;border-radius:2rem;padding:.7rem 1.2rem;font:inherit;font-weight:500;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer;max-width:80vw}
 .music:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.btn.alt{background:var(--soft);color:var(--ink)}
 .gifts{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
 .gift{font-size:2.6rem;background:var(--soft);border:0;border-radius:1.2rem;padding:.6rem 1.1rem;cursor:pointer;transition:transform .2s}
 .gift:active{transform:scale(.92)}
@@ -74,7 +71,6 @@ a.btn{text-decoration:none;margin:.3rem}
 .gift-msg{min-height:4.5rem;text-align:center;font-family:var(--serif);font-style:italic;font-size:1.2rem;margin:1.2rem 0 0}
 .sweet{margin:0;padding:0;list-style:none}
 .sweet li{font-family:var(--serif);font-size:1.2rem;line-height:1.6;padding:.2rem 0 .2rem 1rem;border-left:3px solid var(--accent);margin-bottom:1.1rem}
-.song-note{color:var(--muted);margin:0 0 1rem}
 @media (prefers-reduced-motion:reduce){.heart,.lights{animation:none}.fly{animation:none;left:35%}}
 </style>
 </head>
@@ -211,7 +207,6 @@ a.btn{text-decoration:none;margin:.3rem}
   $("next").addEventListener("click",function(){
     i=(i+1)%reasons.length;$("reason").textContent=reasons[i];
   });
-  function xm(){var n=new Date(),y=n.getFullYear(),t=new Date(y,11,25);if(n>new Date(y,11,26))t=new Date(y+1,11,25);var dd=Math.round((t-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5);$("xmas").textContent=dd===0?"Merry Christmas!":dd+" hari lagi Natal, aku maunya bareng kamu";}
   (function(){var c=$("snow"),x=c.getContext("2d"),f=[],W,H;if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;function rs(){W=c.width=innerWidth;H=c.height=innerHeight}rs();addEventListener("resize",rs);for(var k=0;k<70;k++)f.push({x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*2.5,v:.4+Math.random()*.9,p:Math.random()*6});function d(){x.clearRect(0,0,W,H);x.fillStyle="rgba(255,255,255,.85)";for(var i=0;i<f.length;i++){var o=f[i];o.y+=o.v;o.p+=.01;o.x+=Math.sin(o.p)*.4;if(o.y>H+5){o.y=-5;o.x=Math.random()*W}x.beginPath();x.arc(o.x,o.y,o.r,0,6.283);x.fill()}requestAnimationFrame(d)}d()})();
   apply();tick();setInterval(tick,1000);
 })();
